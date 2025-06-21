@@ -23,11 +23,21 @@ df['TotalCost'] = (df['Quantity'] * df['Price'] + df['Fees']).round(2)
 print("\nTrade Data:\n", df)
 
 
-fig = px.bar(df, x='Symbol', y='TotalCost',
+# fig = px.bar(df, x='Symbol', y='TotalCost',
+#              color='Symbol',
+#              title='Trade Costs by Stock',
+#              text='TotalCost')
+
+# fig = px.scatter(df, x='Symbol', y='TotalCost',
+#              color='Symbol',
+#              title='Trade Costs by Stock',
+#              text='TotalCost')
+
+fig = px.line(df, x='Symbol', y='TotalCost',
              color='Symbol',
              title='Trade Costs by Stock',
              text='TotalCost')
 
 #fig.show()
 
-fig.write_html("trade_analyzer.html")
+fig.write_html("trade_analyzer_line.html")
